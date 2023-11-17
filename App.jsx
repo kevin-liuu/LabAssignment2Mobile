@@ -21,16 +21,23 @@ import ToDoList from './ToDoList';
 
 
 function App() {
+ 
   const[tasks, setTasks] = React.useState([
     'Do laundry',
     'Go to gym',
     'Walk dog'
   ]);
+  //1. implment and pass addTask Function
+  const addTask = (task) =>{
+    //6. implement the addTask logic
+    setTasks([...tasks, task])
+  };
 
   return (
     <SafeAreaView>
      <ToDoList tasks={tasks} />
-     <ToDoForm></ToDoForm>
+     {/* 2. pass addTask to component. Go to ToDoForm */}
+     <ToDoForm addTask={addTask}></ToDoForm>
     </SafeAreaView>
   );
 }

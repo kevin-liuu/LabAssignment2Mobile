@@ -9,15 +9,22 @@ import {
   TextInput,
   Button
 } from 'react-native';
+//3. destructure addTask and pass into argument
+export default function ToDoForm({addTask}){
+  //4. use state to manage input filed
+  const [taskText, setTaskText] = React.useState('');
 
-export default function ToDoForm(){
     return(
         <View style={styles.form}>
+                {/* 5. manage event handling in the TextInput and Button field. GO back to App.jsx */}
                 <TextInput
                 style={styles.input}
                 placeholder="Add a new task..."
+                onChangeText={(text)=>setTaskText(text)}
+                value={taskText}
                 />
-                <Button title="Add" />
+                <Button title="Add"  onPress={()=>addTask(taskText)}
+                />
         </View>
     );
 }
